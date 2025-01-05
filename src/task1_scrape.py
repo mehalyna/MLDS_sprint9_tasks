@@ -16,9 +16,8 @@ def fetch_wikipedia_page(url):
     Raises:
         HTTPError: If the HTTP request returned an unsuccessful status code.
     """
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.text
+    
+    return None
 
 
 def extract_title(soup):
@@ -31,8 +30,8 @@ def extract_title(soup):
     Returns:
         str: The title of the page.
     """
-    title = soup.find('h1', {'id': 'firstHeading'}).get_text(strip=True)
-    return title
+    
+    return None
 
 
 def extract_first_sentence(soup):
@@ -45,9 +44,8 @@ def extract_first_sentence(soup):
     Returns:
         str: The first sentence of the first paragraph.
     """
-    first_paragraph = soup.find('p').get_text(strip=True)
-    first_sentence = first_paragraph.split('.')[0] + '.'
-    return first_sentence
+    
+    return None
 
 
 def save_to_json(data, filename):
@@ -58,8 +56,7 @@ def save_to_json(data, filename):
         data (dict): The data to be saved to the JSON file.
         filename (str): The name of the JSON file to save the data in.
     """
-    with open(filename, 'w') as f:
-        json.dump(data, f, indent=4)
+    ...
 
 
 if __name__ == "__main__":
